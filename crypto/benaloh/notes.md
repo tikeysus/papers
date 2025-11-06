@@ -68,4 +68,9 @@
 - Go to polling station, interact with device, and make vote. 
 - Receive a card with a magnetic stripe and a crypto thumbprint. Stripe includes the vote, thumbprint can be used by voter later to verify that his vote has been cast. 
 - After receiving card, go to the polling station, insure eligibility, and then swipe the card. 
-- Now the vote is cast, and the thumbprints are published for independent verification by each voter.  
+- Now the vote is cast, and the thumbprints are published for independent verification by each voter. 
+
+## Auditing 
+
+- Different appraoches, some allow auditors to decrypt and the spot and invalidate a vote, others allow voters themselves to verify on the spot and still be protected from coercion. 
+- Even with a small number of people committed to verification and auditing, the tally will be accurate. Voter identity is hidden, machine does not know who is voting, thus it does not know when it will be checked so it has to behave honestly during each vote creation. 

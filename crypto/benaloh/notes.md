@@ -73,4 +73,27 @@
 ## Auditing 
 
 - Different appraoches, some allow auditors to decrypt and the spot and invalidate a vote, others allow voters themselves to verify on the spot and still be protected from coercion. 
-- Even with a small number of people committed to verification and auditing, the tally will be accurate. Voter identity is hidden, machine does not know who is voting, thus it does not know when it will be checked so it has to behave honestly during each vote creation. 
+- Even with a small number of people committed to verification and auditing, the tally will be accurate. Voter identity is hidden, machine does not know who is voting, thus it does not know when it will be checked so it has to behave honestly during each vote creation.
+
+## Discussion about Threshold Schemes
+
+### Setup with Maths 
+
+- Take some field modulo p, and take all the non-zero elements so that each element can have a multiplicative inverse. 
+- We know such a field to be cyclic so we know that it possesses a generator. 
+- We choose some value s, s.t. 0<s<p. S is the secret key. 
+- Public key is z=g^s. 
+	- Makes sense, we are masking the private key be raising g to that power. 
+
+### Encryption and Decryption
+
+- Take message M, 0<=M<p and 0<r<p and obtain (x,y)=(Mz^r, g^r). 
+- Decrypt by x/y^s to remove the z^r factor. 
+- Cannot be done without the knowledge of the secret key s. 
+
+### Re-encryption 
+
+**This seems like a very important concept in crypto to be fair.** 
+- we take r' in 0<r'<p and we compute (x',y') = (xz^r', yg^r'). 
+- go back to (x,y) by doing x'/y'^s. 
+- Revealing r' to the intruder only lets him verify that (x,y) and (x',y') have the same decryption. Without knowledge of secret key s, no other information is accessible.  

@@ -96,4 +96,12 @@
 **This seems like a very important concept in crypto to be fair.** 
 - we take r' in 0<r'<p and we compute (x',y') = (xz^r', yg^r'). 
 - go back to (x,y) by doing x'/y'^s. 
-- Revealing r' to the intruder only lets him verify that (x,y) and (x',y') have the same decryption. Without knowledge of secret key s, no other information is accessible.  
+- Revealing r' to the intruder only lets him verify that (x,y) and (x',y') have the same decryption. Without knowledge of secret key s, no other information is accessible. 
+- One can also strategically release r'-r'' to illustrate that (x',y') and (x'',y'') have the same decryption without tying it back to (x,y). **This seems to be very important in the shuffling step and the illustrative proofs.**
+
+### Shamir 
+
+- This guy is a genius. 
+- Distributing shares made easier. 
+- Each shareholder creates their own secret polynomial and contributes g^cj for each coefficient cj. Then each shareholder gives one point from their poly to every other shareholder (these can be verified by computing g^(P(i)) - easily doable since all the g^cj have been already published.) 
+- All these polys are used to create one global poly and then all the shareholders can sum up their points from each poly that they received and this constitutes their share of the overall global poly. Explanation is a bit shady here, but will be better when I summarize the paper fully.  
